@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+
+    <title>Rent-a-Car</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="stylesheets/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="stylesheets/dashboard.css" rel="stylesheet">
+
+
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.8/angular-route.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+        body {
+
+            padding: 0;
+            margin: 0;
+            top: 12px;
+        }
+        #submit {
+            top: 7px;
+            left: -20px;
+            position: relative;
+        }
+        #submit2 {
+            top: 7px;
+            left: 50px;
+            position: relative;
+        }
+        .container {
+            position: relative;
+            top: 80px;
+
+        }
+        #submit-btn {
+
+          align: center;
+           left: 100px;
+            position: absolute;
+        }
+        .logo {
+            margin-top: -90px;
+            margin-left: -20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <!--&lt;!&ndash;  <span class="sr-only">Toggle navigation</span>-->
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/rentacar"><img class="logo" src="./images/rentacar.png"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li> <button type="submit" id="submit" class="btn btn-success">LogOut</button></li>
+                <li><a href="/rentacar">Home</a></li>
+                <li><a href="/carlist">Cars List</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<!--  details of the cars ----------->
+
+<div class="container" >
+        <form class="form" id= "uploadForm" enctype="multipart/form-data"action="/carinfo" method="post">
+            <div class="col-md-4">
+                <div class="form-group">
+                    Car Name:<input type="text" class="form-control" name="carname" id="carname" />
+                </div>
+                <div class="form-group">
+                    Car Model:<input type="text" class="form-control" name="carmodel"  id="carmodel" />
+                </div>
+                <div class="form-group">
+                    Engine Size:<input type="text" class="form-control"  name="enginesize" id="enginesize" />
+                </div>
+                <div class="form-group">
+                   Price: <input type="text" class="form-control" name="price" id="price" />
+                </div>
+                <div class="form-group">
+                    Upload Image:  <input type="file" name="userPhoto" id="userPhoto"/>
+                </div>
+                <div class="form-group">
+                    Place: <input type="text" class="form-control" name="place" id="place" />
+                </div>
+                <div class="form-group">
+                    Pick Up date: <input type="date" class="form-control" name="pickupdate"  id="pickupdate" min="01-01-1900" max="31-12-2040" />
+                </div>
+                <div class="form-group">
+                    Return Date: <input type="date" class="form-control" name="returndate"  id="returndate" min="01-01-1900" max="31-12-2040" />
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" id="submit-btn1" class="btn btn-success">Reserve it</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+<script>
+    $(document).ready(function() {
+        $("#submit").click(function () {
+            // $.get("/index");
+            $(location).prop('href', 'http://localhost:3000/admin');
+        });
+
+        //var email,pass;
+        $("#submit-btn").click(function () {
+            //alert();
+            var cname = $("#carname").val();
+            var cmodel = $("#carmodel").val();
+            var esize = $("#enginesize").val();
+            var price = $("#price").val();
+            var place = $("#place").val();
+            var image = $("#carimg").val();
+            var pickupdateval = $("#pickupdate").val();
+            var returndateval = $("#returndate").val();
+            /*
+             * Perform some validation here.
+             */
+
+            $.post("/carinfo", {cname: cname, cmodel: cmodel, esize: esize, price: price, carimage:image, pickupdate1:pickupdateval, returndate1:returndateval, place: place}, function (data) {
+                if (data === "done") {
+                    //alert();
+                    // window.location.href="/home";
+                    ////res.render('details.ejs',{message:'errorMessage'});
+                    //$('details').ejs(data);
+                    $(location).prop('href', 'http://localhost:3000/details')
+                }
+                else {
+                    // window.location.href="/login";
+                    $(location).prop('href', 'http://localhost:3000/admin')
+                    //// res.render('admin.ejs',{message:'errorMessage'});
+                    //res.render('login',{user: "Great User",title:"homepage"});
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

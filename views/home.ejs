@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+
+    <title>Rent-a-Car</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="stylesheets/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="stylesheets/dashboard.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./stylesheets/style.css">
+
+
+<style>
+    body {
+
+        padding: 0;
+        margin: 0;
+    }
+    .reserv-form {
+        position: relative;
+        top: 180px;
+        left: 250px;
+        background-color: lightgrey;
+        border-radius: 5px;
+        width: 700px;
+        border: 2px solid green;
+        padding: 25px;
+        margin: 25px;
+    }
+    #pickupplace
+    {
+        height:40px;
+        width:200px;
+    }
+    #startdate
+    {
+        position: absolute;
+        top: 45px;
+        left: 230px;
+        height:40px;
+        width:165px;
+    }
+    #enddate
+    {
+        position: absolute;
+        top: 45px;
+        left: 400px;
+        height:40px;
+        width:165px;
+    }
+    #carbtn {
+        position: absolute;
+        top: 45px;
+        left: 575px;
+        padding: 4px 20px;
+        background:#0317C4;
+        border:2px outset #848484;
+        font-family:Andika, Arial, sans-serif;
+        font-size:1.1em;
+        letter-spacing:0.05em;
+        text-transform:uppercase;
+        color:#fff;
+        text-shadow: 0px 1px 10px #000;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        -webkit-box-shadow: rgba(0, 0, 0, .55) 0 1px 6px;
+        -moz-box-shadow: rgba(0, 0, 0, .55) 0 1px 6px;
+        box-shadow: rgba(0, 0, 0, .55) 0 1px 6px;
+    }
+    #carbtn:hover, #carbtn:focus {
+        cursor: pointer;
+        border:2px solid #F7861C;
+    }
+    #searchresult {
+        margin-top: 194px;
+        margin-left: 245px;
+        position: relative;
+    }
+    #reservebtn {
+        padding: 4px 20px;
+        background:#ff471a;
+        border: #848484;
+        font-family:Andika, Arial, sans-serif;
+        font-size:1.1em;
+        letter-spacing:0.05em;
+        color:#fff;
+        text-shadow: 0px 1px 10px #000;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        -webkit-box-shadow: rgba(0, 0, 0, .55) 0 1px 6px;
+        -moz-box-shadow: rgba(0, 0, 0, .55) 0 1px 6px;
+        box-shadow: rgba(0, 0, 0, .55) 0 1px 6px;
+    }
+    #reservebtn:hover, #reservebtn:focus {
+        cursor: pointer;
+        border:2px solid #66ff33;
+    }
+    .list_result {
+        width: 450px;
+        border: 1px solid black;
+        background-color: whitesmoke;
+        padding: 10px 10px;
+        -webkit-column-gap: 10px;
+        column-gap: 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .logo {
+        margin-top: -90px;
+        margin-left: -20px;
+    }
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <!--&lt;!&ndash;  <span class="sr-only">Toggle navigation</span>-->
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/rentacar"><img class="logo" src="./images/rentacar.png"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/rentacar">Home</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <!--  <form class="navbar-form navbar-right">
+                  <input type="text" class="form-control" placeholder="Search...">
+              </form> -->
+        </div>
+    </div>
+</nav>
+<div class="reserv-form">
+    <form name="form-car">
+        <div class="col-car">
+            <div class="form-group">
+                PICKUP & RETURN:<input type="text" class="form-control" placeholder="Enter your arrival place.." id="pickupplace" />
+                </div>
+              <div class="form-group">
+                    <input class="form-control" type="date" id="startdate" name="startdate" min="01-01-1900" max="31-12-2040" />
+                </div>
+            <div class="form-group">
+                <input class="form-control" type="date" id="enddate" name="enddate" min="01-01-1900" max="31-12-2040" />
+            </div>
+            <div class="form-group">
+                <a id="carbtn" >Search</a>
+
+                <!--<div class="container">
+                    <button id="paypal2" class="ClassyPaypal-button"
+                            data-item_name="jQuery ClassyPaypal Plugin"
+                            data-amount="12"
+                            data-quantity="1"
+                            data-currency_code="EUR">Buy Now</button>
+                </div>-->
+
+            </div>
+        </div>
+    </form>
+</div>
+<div class="col-md-12" id="searchresult">
+</div>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+
+<!--<script src="public/scripts/classypaypal.js"></script>-->
+<!--<script type="text/javascript">
+     /*$('#paypal2').ClassyPaypal({
+        type: 'buynow',
+        style: 'round'
+    });*/
+
+    /* $(document).ready(function() {
+         $('#reservebtn').click(function () {
+             //window.location.href = '/userdetails';
+             location.href = "/userdetails"
+             return false;
+         });
+     }*/
+</script> -->
+
+
+<script>
+    $(document).ready(function() {
+
+        $("#carbtn").click(function () {
+            //alert();
+            var pickupplace = $("#pickupplace").val();
+            var startdate = $("#startdate").val();
+            var enddate = $("#enddate").val();
+            /*
+             * Perform some validation here.
+             */
+            getcarData(pickupplace,startdate,enddate);
+            function getcarData(pickupplace) {
+
+                var data = JSON.stringify({ pickupplace: pickupplace,startdate:startdate,enddate:enddate });
+                $.ajax({
+                    url: "http://localhost:3000/carrent/",
+                    // the URL for the request
+                    type: "POST",
+                    // whether this is a POST or GET request
+                    contentType: "application/json",
+                    data: data,
+                    dataType: "json",
+                    // the type of data we expect back
+                    success: function (responseJson) {
+                        var obj = jQuery.parseJSON(JSON.stringify(responseJson));
+                        var objlength = obj.length;
+                        if( objlength > 0) {
+                            $('#searchresult').empty();
+                            $.each(obj, function (key, value) {
+                                $('#searchresult').append('<div class="list_result" style="position: relative" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"><h4>Car Name: ' + value.carname + '</h4><p>Car Model: ' + value.carmodel + '</p><p> Engine Size: ' + value.enginesize + '</p><p>Car Price: ' + value.price + '</p><p>Car Place: ' + value.place + '</p><p>Pickup Date: ' + value.pickupdate + '</p><p>Return Date:' + value.returndate + '</p><img src="http://localhost:3000/images/'+ value.Image +'" style="width:250px; position: absolute; left: 180px; top: 70px"><p><form action="/userdetails"> <input onclick="myFunction()" type="Submit" id="reservebtn" class="reserve-btn" /></form></p></div>');
+                            });
+                        } else {
+                              $('#searchresult').empty();
+
+                             $('#searchresult').append('<div class="list_result"><p>Sorry...No car found..!! Search another car</p></div>');
+                        }
+                    },
+                    error: function (xhr, status) {
+                        // code run if request fails; raw request and status
+                        console.log("Sorry, there was a problem!");
+                    },
+                    complete: function (xhr, status) {  	// code to run regardless of success or failure
+                        console.log("The request is completed!");
+                    }
+                })
+            }
+
+           /* $.post("/carrent", {enddate: enddate, startdate: startdate, pickupplace: pickupplace}, function (data) {
+                if (data === "done") {
+                    $(location).prop('href', 'http://localhost:3000/details')
+                }
+                else {
+                    $(location).prop('href', 'http://localhost:3000/admin')
+                }
+            });*/
+        });
+    });
+    function myFunction()
+    {
+        var search = document.getElementById("reservebtn").value;
+        window.location = '/userdetails='+search;
+    }
+</script>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+
+
+    <title>Rent-a-Car</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="stylesheets/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="stylesheets/dashboard.css" rel="stylesheet">
+
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+       <script src="https://code.angularjs.org/1.5.8/angular-route.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<style>
+    .table-car {
+    margin-top: 100px;
+    margin-left: 20px;
+    }
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid #dddddd;
+    }
+    .logo {
+        margin-top: -90px;
+        margin-left: -20px;
+    }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <!--&lt;!&ndash;  <span class="sr-only">Toggle navigation</span>-->
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/rentacar"><img class="logo" src="./images/rentacar.png"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- <li> <button type="submit" id="submit" class="btn btn-success">LogOut</button></li> -->
+                   <li><a href="/rentacar">Home</a></li>
+                <li><a href="/details">Details</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<div class="table-car">
+    <table class="tname" style="width: 60%;">
+        <thread>
+        <tr>
+            <th>No:</th>
+        <th>Car Name</th>
+        <th>Car Model</th>
+        <th>Engine Size</th>
+        <th>Price</th>
+        <th>Pick Up Date</th>
+        <th>Return Date</th>
+        <th>Place</th>
+        </tr>
+        </thread>
+    <tbody>
+    <%for(var i=0; i<carlist.length; i++) {%>
+    <tr>
+        <td><%= carlist[i].id %> </td>
+        <td><%= carlist[i].carname %> </td>
+        <td><%= carlist[i].carmodel %> </td>
+        <td><%= carlist[i].enginesize %> </td>
+        <td><%= carlist[i].price %> </td>
+        <td><%= carlist[i].pickupdate %> </td>
+        <td><%= carlist[i].returndate %> </td>
+        <td><%= carlist[i].place %> </td>
+        </tr>
+    <% } %>
+        </tbody>
+        </table>
+    </div>
+</body>
+</html>

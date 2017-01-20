@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+
+    <title>Rent-a-Car</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="stylesheets/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="stylesheets/dashboard.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./stylesheets/style.css">
+
+    <style>
+        body {
+
+            padding: 0;
+            margin: 0;
+            top: 12px;
+        }
+        #submit-btn1 {
+            top: 7px;
+            right: -10px;
+            position: relative;
+            width: 150px;
+        }
+        #submit2 {
+            top: 7px;
+            left: 50px;
+            position: relative;
+        }
+        .container {
+            position: relative;
+            top: 90px;
+            left: 250px;
+            background-color: lightgrey;
+            border-radius: 5px;
+            width: 700px;
+            border: 2px solid green;
+            padding: 25px;
+            margin: 25px;
+        }
+        #submit-btn {
+
+            align: center;
+            left: 100px;
+            position: absolute;
+        }
+
+        .logo {
+            margin-top: -90px;
+            margin-left: -20px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/rentacar"><img class="logo" src="./images/rentacar.png"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/rentacar">Home</a></li>
+                <li><a href="/index">Car Details</a></li>
+                <li><a href="/contact">Contact</a></li>
+
+            </ul>
+            <!-- <div class="imageform">
+             <form id= "uploadForm" enctype="multipart/form-data"action="/api/photo" method="post"s>
+                 <input type="file" name="userPhoto" />
+                 <input type="submit" value="Upload Image" name="submit">
+             </form>
+                 </div>-->
+            <!--  <form class="navbar-form navbar-right">
+                  <input type="text" class="form-control" placeholder="Search...">
+              </form> -->
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <form class="form" id= "uploadForm" action="/userdetailform" method="post">
+        <div class="col-md-4">
+            <div class="form-group">
+                First Name:<input type="text" class="form-control" name="firstname" id="firstname" />
+            </div>
+            <div class="form-group">
+                Last Name:<input type="text" class="form-control" name="lastname"  id="lastname" />
+            </div>
+            <!--<div class="form-group">
+                <input class="form-control" type="date" id="dateofbirth" name="dateofbirth" min="1900-01-01" max="2050-31-12" />
+            </div>-->
+            <div class="form-group">
+                DOB: <input type="date" class="form-control" name="dateofbirth"  id="dateofbirth" min="1900-01-01" max="2050-31-12" />
+            </div>
+            <div class="form-group">
+                Passport Number:<input type="text" class="form-control"  name="passnum" id="passnum" />
+            </div>
+            <div class="form-group">
+                Driving License Number:<input type="text" class="form-control" name="drivenum" id="drivenum" />
+            </div>
+            <div class="form-group">
+                Car Name:<input type="text" class="form-control" name="carname"  id="carname" />
+            </div>
+
+            <div class="form-group">
+                <button type="submit" id="submit-btn1" class="btn btn-success">Submit</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+</body>
+</html>
